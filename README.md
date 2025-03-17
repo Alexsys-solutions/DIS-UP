@@ -1,6 +1,6 @@
 # DIS-UP : Système de Gestion Logistique
 
-DIS-UP est une solution basée sur des microservices pour **digitaliser et automatiser** la logistique chez SONASID, notamment le **flux d’import maritime** de matières premières et leur réception sur site. Cette plateforme couvre la configuration des référentiels, la gestion des arrivages (PortOps), la pesée (Pont à Bascule), le suivi GPS, la finalisation de dossiers d’import, et d’autres fonctionnalités de bout en bout.
+DIS-UP est une solution basée sur des microservices pour **digitaliser et automatiser** la logistique chez SONASID, notamment le **flux d’import de la ferraille** de matières premières et leur réception sur site. Cette plateforme couvre la configuration des référentiels, la gestion des arrivages, la pesée (Pont à Bascule), le suivi GPS, la file d'attente, et d’autres fonctionnalités de bout en bout.
 
 ---
 
@@ -8,8 +8,8 @@ DIS-UP est une solution basée sur des microservices pour **digitaliser et autom
 
 1. [Aperçu Général](#aperçu-général)  
 2. [Architecture et Microservices](#architecture-et-microservices)  
-   - [Microservice de Référentiel](#microservice-de-référentiel)  
-   - [Microservice PortOps (Opérations Portuaires)](#microservice-portops-opérations-portuaires)  
+   - [Microservice de Référentiel ReferentialAPI](#microservice-de-référentiel)  
+   - [Microservice PortOpsAPI (Opérations Portuaires)](#microservice-portops-opérations-portuaires)  
    - [Microservice Weighing / Pont à Bascule](#microservice-weighing--pont-à-bascule)  
    - [Microservice Réclamations et Clôture](#microservice-réclamations-et-clôture)  
    - [GPS Tracking et Autres Modules](#gps-tracking-et-autres-modules)  

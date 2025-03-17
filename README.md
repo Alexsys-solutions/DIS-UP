@@ -115,13 +115,3 @@ DIS-UP suit une **approche microservices** où chaque service a une responsabili
 5. Surveiller les logs : l’application publie des événements sur Service Bus pour toute création ou mise à jour critique.
 
 ---
-
-## 6. Licence
-
-Ce projet DIS-UP est un outil propriétaire développé pour **SONASID**. Toute redistribution ou utilisation nécessite l’approbation des responsables du projet.  
-
-Pour toute question ou contribution, merci de contacter l’équipe DIS-UP ou la DSI SONASID.
-
----
-
-**Merci de votre intérêt** pour DIS-UP. Pour plus de détails, veuillez consulter les spécifications fonctionnelles ou contacter les membres de l’équipe projet.

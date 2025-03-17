@@ -19,7 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Arrivages\Interfaces\" />
     <Folder Include="Users\Interfaces\" />
+    <Folder Include="Vessels\Interfaces\" />
   </ItemGroup>
 
   <PropertyGroup>

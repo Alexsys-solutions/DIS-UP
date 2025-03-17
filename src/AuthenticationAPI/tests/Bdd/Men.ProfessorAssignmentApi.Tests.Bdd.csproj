@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<IsTestProject>true</IsTestProject>
+		<TargetFramework>net8.0</TargetFramework>
+		<ProjectGuid>{CF9A3FBC-A5DD-4B1D-9F81-7EB821A48F00}</ProjectGuid>
+		<IsPackable>false</IsPackable>
+		<RootNamespace>Men.ProfessorAssignmentApi.Tests.Bdd</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup Label="Package References">
+		<PackageReference Include="Als.Foundation.Test.SpecFlow" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
+		<PackageReference Include="SpecFlow" Version="3.9.74" />
+		<PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.74" />
+		<PackageReference Include="SpecFlow.xUnit" Version="3.9.74" />
+		<PackageReference Include="xunit" Version="2.6.3" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="xunit.runner.utility" Version="2.6.3" />
+		<PackageReference Include="coverlet.msbuild" Version="6.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.0" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\Api\Men.ProfessorAssignmentApi.Api.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<Target Name="AfterUpdateFeatureFilesInProject">
+		<!-- include any generated SpecFlow files in the compilation of the project if not included yet -->
+		<ItemGroup>
+			<Compile Include="**\*.feature.cs" Exclude="@(Compile)" />
+		</ItemGroup>
+	</Target>
+</Project>

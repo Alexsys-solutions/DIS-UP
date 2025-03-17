@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  api:
+    image: ${DOCKER_REGISTRY}authenticationapi.api
+    ports:
+      - "5080:5080"
+      - "5081:5081"
+    build:
+      context: .
+      dockerfile: src/Api/Dockerfile.Debug
+    environment:
+      - ASPNETCORE_URLS=http://+:5080;http://+:5081;http://+:5443
+      - ASPNETCORE_HTTP_PORT=5080
+      - MANAGEMENT_HTTP_PORT=5081
+      - ASPNETCORE_ENVIRONMENT=Local

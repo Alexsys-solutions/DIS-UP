@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ProjectGuid>{5FA2EA81-BF54-4E4D-AC22-DD992ABF0538}</ProjectGuid>
+		<IsPackable>false</IsPackable>
+		<RootNamespace>Men.ProfessorAssignmentApi.Infrastructure.Tests.Unit</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\src\Infrastructure\Men.ProfessorAssignmentApi.Infrastructure.csproj" />
+	</ItemGroup>
+
+</Project>

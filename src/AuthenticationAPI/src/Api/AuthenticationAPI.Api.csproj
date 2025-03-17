@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup Label="Build">
+		<TargetFramework>net8.0</TargetFramework>
+		<ServerGarbageCollection>true</ServerGarbageCollection>
+		<DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+		<DockerTargetOS>Linux</DockerTargetOS>
+		<ProjectGuid>{D1739B9D-A467-4F65-9AE7-3FA85875BBC7}</ProjectGuid>
+		<InvariantGlobalization>false</InvariantGlobalization>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<RootNamespace>AuthenticationAPI.Api</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup Label="Package References">
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.1" />
+		<PackageReference Include="Mapster" Version="7.4.0" />
+		<PackageReference Include="Mapster.DependencyInjection" Version="1.0.1" />
+		<PackageReference Include="MediatR" Version="12.2.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+	</ItemGroup>
+
+
+	<ItemGroup Label="Project References">
+		<ProjectReference Include="..\Domain\AuthenticationAPI.Domain.csproj" />
+		<ProjectReference Include="..\Infrastructure\AuthenticationAPI.Infrastructure.csproj" />
+	</ItemGroup>
+
+	<!-- Tools - Command line tools which can be run using 'dotnet [Tool Name]'. -->
+	<ItemGroup Label="Tools">
+		<!-- dotnet aspnet-codegenerator - Code Generation tool for ASP.NET Core used for generating controllers and views. -->
+		<DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Application\Users\AssignProjectsToAgents\" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<SharedRuleSetPath>\\CLO-NAS\cds-informatique\00_Partage_Sécurisé\dotnet\sonar\sonar-platinium-1.0.ruleset</SharedRuleSetPath>
+		<LocalRuleSetPath>..\..\.sonarlint\sonar-platinium-1.0.ruleset</LocalRuleSetPath>
+	</PropertyGroup>
+
+	<Choose>
+		<When Condition="Exists('$(SharedRuleSetPath)')">
+			<PropertyGroup Condition="'$(CodeAnalysisRuleSet)' == '' ">
+				<CodeAnalysisRuleSet>$(SharedRuleSetPath)</CodeAnalysisRuleSet>
+			</PropertyGroup>
+		</When>
+		<When Condition="Exists('$(LocalRuleSetPath)')">
+			<PropertyGroup Condition="'$(CodeAnalysisRuleSet)' == '' ">
+				<CodeAnalysisRuleSet>$(LocalRuleSetPath)</CodeAnalysisRuleSet>
+			</PropertyGroup>
+		</When>
+	</Choose>
+
+</Project>

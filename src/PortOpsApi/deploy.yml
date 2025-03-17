@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: realestate-projectapi-deployment
+  labels:
+    app: realestate-projectapi
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: realestate-projectapi
+  template:
+    metadata:
+      labels:
+        app: realestate-projectapi
+    spec:
+      containers:
+      - name: realestate-projectapi-deployment
+        image: sonasidacr.azurecr.io/gpiarealestate/projectapi:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80

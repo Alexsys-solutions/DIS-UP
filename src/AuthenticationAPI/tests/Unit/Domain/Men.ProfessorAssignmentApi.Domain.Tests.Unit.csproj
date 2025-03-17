@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ProjectGuid>{C572FF05-AE29-4943-8958-EF857E9C7665}</ProjectGuid>
+		<IsPackable>false</IsPackable>
+		<RootNamespace>Men.ProfessorAssignmentApi.Domain.Tests.Unit</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup Label="Project References">
+		<ProjectReference Include="..\..\..\src\Domain\Men.ProfessorAssignmentApi.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

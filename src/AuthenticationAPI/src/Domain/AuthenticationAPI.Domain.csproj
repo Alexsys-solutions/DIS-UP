@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ProjectGuid>{B2866CAE-2015-44E2-BE73-F53E5146D360}</ProjectGuid>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ItemContext\**" />
+    <EmbeddedResource Remove="ItemContext\**" />
+    <None Remove="ItemContext\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Als.Foundation.Data.CosmosDb" Version="8.3.5" />
+    <PackageReference Include="Als.Foundation.Data.EntityFramework" Version="8.3.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <SharedRuleSetPath>\\CLO-NAS\cds-informatique\00_Partage_Sécurisé\dotnet\sonar\sonar-platinium-1.0.ruleset</SharedRuleSetPath>
+    <LocalRuleSetPath>..\..\.sonarlint\sonar-platinium-1.0.ruleset</LocalRuleSetPath>
+    <RootNamespace>AuthenticationAPI.Domain</RootNamespace>
+  </PropertyGroup>
+
+  <Choose>
+    <When Condition="Exists('$(SharedRuleSetPath)')">
+      <PropertyGroup Condition="'$(CodeAnalysisRuleSet)' == '' ">
+        <CodeAnalysisRuleSet>$(SharedRuleSetPath)</CodeAnalysisRuleSet>
+      </PropertyGroup>
+    </When>
+    <When Condition="Exists('$(LocalRuleSetPath)')">
+      <PropertyGroup Condition="'$(CodeAnalysisRuleSet)' == '' ">
+        <CodeAnalysisRuleSet>$(LocalRuleSetPath)</CodeAnalysisRuleSet>
+      </PropertyGroup>
+    </When>
+  </Choose>
+  
+</Project>

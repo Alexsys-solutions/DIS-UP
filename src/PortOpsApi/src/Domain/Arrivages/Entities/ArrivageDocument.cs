@@ -5,9 +5,15 @@ public class ArrivageDocument
     public Guid ArrivageId { get; set; }
     public Arrivage? Arrivage { get; set; }
 
-    // Some reference to the type (Proforma, Contrat, etc.)
-    public string DocTypeCode { get; set; } = default!;
-    // The actual file path, storage key, or external link:
+    // e.g. "Contrat", "DemandeLC", "LicenceImport", "CertNonRadio", "CertNonExplosif", ...
+    public string DocumentTypeCode { get; set; } = default!;
+
+    // The actual path or file reference
     public string FilePath { get; set; } = default!;
+
+    // Whether it's optional or mandatory
+    public bool IsMandatory { get; set; }
+
     public DateTime UploadedOn { get; set; } = DateTime.UtcNow;
+    public string UploadedBy { get; set; } = default!;
 }

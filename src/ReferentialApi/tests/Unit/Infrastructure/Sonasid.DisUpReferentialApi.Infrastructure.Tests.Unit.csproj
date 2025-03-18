@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ProjectGuid>{E35D5047-4EC7-4FCE-8486-5FC7CC2D0601}</ProjectGuid>
+		<IsPackable>false</IsPackable>
+		<RootNamespace>Sonasid.DisUpReferentialApi.Infrastructure.Tests.Unit</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\src\Infrastructure\Sonasid.DisUpReferentialApi.Infrastructure.csproj" />
+	</ItemGroup>
+
+</Project>

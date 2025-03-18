@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ProjectGuid>{83D322CD-6311-4EF5-B386-720969EDEFF6}</ProjectGuid>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup Label="Package References">
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Data.Common" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup Label="Project References">
+    <ProjectReference Include="..\Domain\Sonasid.DisUpReferentialApi.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Label="Internals Visibility">
+    <InternalsVisibleToTest Include="Sonasid.DisUpReferentialApi.Infrastructure.Tests.Unit" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <SharedRuleSetPath>\\CLO-NAS\cds-informatique\00_Partage_Sécurisé\dotnet\sonar\sonar-platinium-1.0.ruleset</SharedRuleSetPath>
+    <LocalRuleSetPath>..\..\.sonarlint\sonar-platinium-1.0.ruleset</LocalRuleSetPath>
+    <RootNamespace>Sonasid.DisUpReferentialApi.Infrastructure</RootNamespace>
+  </PropertyGroup>
+
+  <Choose>
+    <When Condition="Exists('$(SharedRuleSetPath)')">
+      <PropertyGroup Condition="'$(CodeAnalysisRuleSet)' == '' ">
+        <CodeAnalysisRuleSet>$(SharedRuleSetPath)</CodeAnalysisRuleSet>
+      </PropertyGroup>
+    </When>
+    <When Condition="Exists('$(LocalRuleSetPath)')">
+      <PropertyGroup Condition="'$(CodeAnalysisRuleSet)' == '' ">
+        <CodeAnalysisRuleSet>$(LocalRuleSetPath)</CodeAnalysisRuleSet>
+      </PropertyGroup>
+    </When>
+  </Choose>
+  
+</Project>

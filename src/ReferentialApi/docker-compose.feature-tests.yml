@@ -1,0 +1,10 @@
+version: "3.3"
+
+services:
+  api:
+    image: docker-registry.cdweb.biz/dotnet/dotnet-sdk:6.0
+    environment:
+      - CollectCoverage=true
+      - CoverletOutputFormat=opencover,cobertura
+    entrypoint: /bin/bash -c "dotnet restore /src/target/*.sln && find /src/target/tests/Bdd -name \"*.csproj\" -exec dotnet test \"{}\" -c Release --logger \"trx;LogFileName=TEST.xml\" \\;"
+    user: root

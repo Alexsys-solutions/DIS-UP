@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ProjectGuid>{9DA7CD4C-19E3-40B3-9BEB-F31EC5F7578F}</ProjectGuid>
+		<IsPackable>false</IsPackable>
+		<RootNamespace>Sonasid.DisUpReferentialApi.Api.Tests.Unit</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\src\Api\Sonasid.DisUpReferentialApi.Api.csproj" />
+	</ItemGroup>
+
+</Project>

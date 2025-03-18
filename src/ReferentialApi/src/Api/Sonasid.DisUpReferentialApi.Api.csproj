@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup Label="Build">
+		<TargetFramework>net8.0</TargetFramework>
+		<ServerGarbageCollection>true</ServerGarbageCollection>
+		<DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+		<DockerTargetOS>Linux</DockerTargetOS>
+		<ProjectGuid>{5C73C6A0-C584-47FF-8CED-A3E23180C08F}</ProjectGuid>
+		<InvariantGlobalization>true</InvariantGlobalization>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<RootNamespace>Sonasid.DisUpReferentialApi.Api</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup Label="Package References">
+		<PackageReference Include="Als.Foundation.Logging.Log4net" Version="8.0.1" />
+		<PackageReference Include="Als.Foundation.Logging.Log4Net.Monithor" Version="8.0.1" />
+		<PackageReference Include="Als.Foundation.Metrics.Web" Version="8.0.1" />
+		<PackageReference Include="Als.Foundation.Configuration.Platforms" Version="8.0.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+	</ItemGroup>
+
+
+	<ItemGroup Label="Project References">
+		<ProjectReference Include="..\Domain\Sonasid.DisUpReferentialApi.Domain.csproj" />
+		<ProjectReference Include="..\Infrastructure\Sonasid.DisUpReferentialApi.Infrastructure.csproj" />
+	</ItemGroup>
+
+	<!-- Tools - Command line tools which can be run using 'dotnet [Tool Name]'. -->
+	<ItemGroup Label="Tools">
+		<!-- dotnet aspnet-codegenerator - Code Generation tool for ASP.NET Core used for generating controllers and views. -->
+		<DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
+	</ItemGroup>
+
+	<ItemGroup Label="Internals Visibility">
+		<InternalsVisibleToTest Include="Sonasid.DisUpReferentialApi.Api.Tests.Unit" />
+		<InternalsVisibleToTest Include="Sonasid.DisUpReferentialApi.Tests.Bdd" />
+		<InternalsVisibleToTest Include="Sonasid.DisUpReferentialApi.Tests.Pact.Provider" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<SharedRuleSetPath>\\CLO-NAS\cds-informatique\00_Partage_Sécurisé\dotnet\sonar\sonar-platinium-1.0.ruleset</SharedRuleSetPath>
+		<LocalRuleSetPath>..\..\.sonarlint\sonar-platinium-1.0.ruleset</LocalRuleSetPath>
+	</PropertyGroup>
+
+	<Choose>
+		<When Condition="Exists('$(SharedRuleSetPath)')">
+			<PropertyGroup Condition="'$(CodeAnalysisRuleSet)' == '' ">
+				<CodeAnalysisRuleSet>$(SharedRuleSetPath)</CodeAnalysisRuleSet>
+			</PropertyGroup>
+		</When>
+		<When Condition="Exists('$(LocalRuleSetPath)')">
+			<PropertyGroup Condition="'$(CodeAnalysisRuleSet)' == '' ">
+				<CodeAnalysisRuleSet>$(LocalRuleSetPath)</CodeAnalysisRuleSet>
+			</PropertyGroup>
+		</When>
+	</Choose>
+
+</Project>

@@ -1,0 +1,32 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:14612/",
+      "sslPort": 0 //44309
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:14612/",
+      "launchUrl": "http://localhost:14612/health",
+      "use64Bit": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Local"
+      }
+    },
+    "Sonasid.DisUpReferentialApi.Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:26912/health",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Local"
+        //"ASPNETCORE_HTTPS_PORT": "44377",
+      },
+      "applicationUrl": "http://localhost:26912/"
+    }
+  }
+}

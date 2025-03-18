@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ProjectGuid>{390A469B-F905-4EDF-A4BC-918B8A72D291}</ProjectGuid>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ItemContext\**" />
+    <EmbeddedResource Remove="ItemContext\**" />
+    <None Remove="ItemContext\**" />
+  </ItemGroup>
+
+  <ItemGroup Label="Internals Visibility">
+    <InternalsVisibleToTest Include="Sonasid.DisUpReferentialApi.Domain.Tests.Unit" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <SharedRuleSetPath>\\CLO-NAS\cds-informatique\00_Partage_Sécurisé\dotnet\sonar\sonar-platinium-1.0.ruleset</SharedRuleSetPath>
+    <LocalRuleSetPath>..\..\.sonarlint\sonar-platinium-1.0.ruleset</LocalRuleSetPath>
+    <RootNamespace>Sonasid.DisUpReferentialApi.Domain</RootNamespace>
+  </PropertyGroup>
+
+  <Choose>
+    <When Condition="Exists('$(SharedRuleSetPath)')">
+      <PropertyGroup Condition="'$(CodeAnalysisRuleSet)' == '' ">
+        <CodeAnalysisRuleSet>$(SharedRuleSetPath)</CodeAnalysisRuleSet>
+      </PropertyGroup>
+    </When>
+    <When Condition="Exists('$(LocalRuleSetPath)')">
+      <PropertyGroup Condition="'$(CodeAnalysisRuleSet)' == '' ">
+        <CodeAnalysisRuleSet>$(LocalRuleSetPath)</CodeAnalysisRuleSet>
+      </PropertyGroup>
+    </When>
+  </Choose>
+  
+</Project>
